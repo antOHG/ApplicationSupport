@@ -1,0 +1,85 @@
+﻿<navigation:Page 
+  x:Class="CustomerSurvey3.About" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="480"  
+  Style="{StaticResource PageStyle}" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:CustomerSurvey3.Web.Services" xmlns:my1="clr-namespace:CustomerSurvey3.Web" xmlns:local="clr-namespace:CustomerSurvey3" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+  <Grid x:Name="LayoutRoot" Height="478" Width="1024" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="450*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*" />
+            <ColumnDefinition Width="780*" />
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <local:BooleanToVisibilityConverter x:Key="boolVisibilityConverter"/>
+        </Grid.Resources>
+            <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" Margin="0,0,0,-41" Grid.ColumnSpan="2" Grid.RowSpan="2">
+
+      <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
+
+        <TextBlock x:Name="HeaderText" Style="{StaticResource HeaderTextStyle}" Text="Find resident" />
+        <TextBlock x:Name="ContentText" Style="{StaticResource ContentTextStyle}" 
+                           Text="Enter seach criteria"/>
+                <riaControls:DomainDataSource AutoLoad="False" d:DesignData="{d:DesignInstance my1:FindUHTenant_Result, CreateList=true}" Height="0" LoadedData="findUHTenant_ResultDomainDataSource_LoadedData" Name="findUHTenant_ResultDomainDataSource" QueryName="GetTenantsQuery" Width="0">
+                    <riaControls:DomainDataSource.DomainContext>
+                        <my:SurveyContext />
+                    </riaControls:DomainDataSource.DomainContext>
+                    <riaControls:DomainDataSource.QueryParameters>
+                        <riaControls:Parameter ParameterName="name" Value="{Binding ElementName=nameTextBox, Path=Text}" />
+                        <riaControls:Parameter ParameterName="address" Value="{Binding ElementName=addressTextBox, Path=Text}" />
+                    </riaControls:DomainDataSource.QueryParameters>
+                </riaControls:DomainDataSource>
+                <StackPanel Height="30" Orientation="Horizontal">
+                    <sdk:Label Content="Name:" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Name="nameTextBox" Width="150" />
+                    <sdk:Label Content="Address:" Margin="3" VerticalAlignment="Center" />
+                    <TextBox Name="addressTextBox" Width="150" />
+                    <Button Command="{Binding Path=LoadCommand, ElementName=findUHTenant_ResultDomainDataSource}" Content="Find" Margin="3" Name="findUHTenant_ResultDomainDataSourceLoadButton" />
+                </StackPanel>
+                <sdk:DataGrid Margin="0,10,0,0" AutoGenerateColumns="False" ItemsSource="{Binding ElementName=findUHTenant_ResultDomainDataSource, Path=Data}" Name="findUHTenant_ResultDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Height="256" Width="939" HorizontalAlignment="Left">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn x:Name="uHTenantRefColumn" Binding="{Binding Path=UHTenancyRef, Mode=OneWay}" Header="Tenant ref" IsReadOnly="True" Width="90" />
+                        <sdk:DataGridTextColumn x:Name="persNoColumn" Binding="{Binding Path=PersNo, Mode=OneWay}" Header="Person" IsReadOnly="True" Width="60" />
+                        <sdk:DataGridTextColumn x:Name="name" Binding="{Binding Path=Name, Mode=OneWay}" Header="Name" IsReadOnly="True" Width="200" />
+                        <sdk:DataGridTextColumn x:Name="address" Binding="{Binding Path=Address}" Header="Address" Width="300" />
+                        <sdk:DataGridTextColumn x:Name="tenure" Binding="{Binding Path=Tenure}" Header="Tenure" Width="140" />
+                        <sdk:DataGridTextColumn x:Name="region" Binding="{Binding Path=Region}" Header="Region" Width="140" />
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+                <CheckBox Content="Related person?" Height="16" Name="relatedPersonCheckBox" Margin="0,10,0,0"/>
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" Height="30" Visibility="{Binding IsChecked, ElementName=relatedPersonCheckBox, Converter={StaticResource boolVisibilityConverter}}">
+                    <TextBlock Text="Name" />
+                    <TextBox Name="relatedNameTextBox" Width="250" Margin="10,0,0,0" />
+                    <TextBlock Text="Relation" Margin="10,0,0,0"/>
+                    <TextBox Name="relatedRelationTextBox" Width="150" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                    <TextBlock Text="Choose a survey" />
+                    <ComboBox Height="26" MinWidth="300" Name="surveyTypeComboBox" Width="120" HorizontalAlignment="Left" Margin="10,0,0,0" DisplayMemberPath="Name">
+                        <!--<ComboBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ComboBox.ItemsPanel>-->
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="0,10,0,0" Orientation="Horizontal" Height="30">
+                    <Button Name="takeSurveyButton" Click="takeSurveyButton_Click">Confirm</Button>
+                </StackPanel>
+                <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my1:SurveyType, CreateList=true}" Height="0" LoadedData="surveyTypeDomainDataSource_LoadedData" Name="surveyTypeDomainDataSource" QueryName="GetSurveyTypesQuery" Width="0">
+                    <riaControls:DomainDataSource.DomainContext>
+                        <my:SurveyContext />
+                    </riaControls:DomainDataSource.DomainContext>
+                </riaControls:DomainDataSource>
+            </StackPanel>
+    </ScrollViewer>
+  </Grid>
+
+</navigation:Page>

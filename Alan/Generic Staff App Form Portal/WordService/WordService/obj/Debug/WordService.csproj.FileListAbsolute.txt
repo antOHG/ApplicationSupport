@@ -1,0 +1,39 @@
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe.config
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\obj\Debug\WordService.csprojResolveAssemblyReference.cache
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\obj\Debug\WordService.WordService.resources
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\obj\Debug\WordService.csproj.GenerateResource.Cache
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\bin\Debug\WordService.pdb
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\obj\Debug\WordService.exe
+c:\users\mark\documents\visual studio 2015\Projects\WordService\WordService\obj\Debug\WordService.pdb
+C:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\obj\Debug\WordService.ProjectInstaller.resources
+U:\WordService\WordService\bin\Debug\WordService.exe.config
+U:\WordService\WordService\obj\Debug\WordService.exe
+U:\WordService\WordService\obj\Debug\WordService.pdb
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\bin\Debug\WordService.exe.config
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\obj\Debug\WordService.exe
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\obj\Debug\WordService.pdb
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\bin\Debug\WordService.exe
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\bin\Debug\WordService.pdb
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\obj\Debug\WordService.csprojResolveAssemblyReference.cache
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\obj\Debug\WordService.ProjectInstaller.resources
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\obj\Debug\WordService.WordService.resources
+\\ohgfile\profiles$\Home\athompson\Documents\WordService\WordService\obj\Debug\WordService.csproj.GenerateResource.Cache
+U:\Beanland\WordService\WordService\bin\Debug\WordService.exe.config
+U:\Beanland\WordService\WordService\obj\Debug\WordService.exe
+U:\Beanland\WordService\WordService\obj\Debug\WordService.pdb
+U:\Beanland\WordService\WordService\obj\Debug\WordService.csprojResolveAssemblyReference.cache
+U:\Beanland\WordService\WordService\obj\Debug\WordService.ProjectInstaller.resources
+U:\Beanland\WordService\WordService\obj\Debug\WordService.WordService.resources
+U:\Beanland\WordService\WordService\obj\Debug\WordService.csproj.GenerateResource.Cache
+U:\Beanland\WordService\WordService\bin\Debug\WordService.exe
+U:\Beanland\WordService\WordService\bin\Debug\WordService.pdb
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\bin\Debug\iz.exe.config
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\bin\Debug\iz.exe
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\bin\Debug\iz.pdb
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\obj\Debug\WordService.csprojResolveAssemblyReference.cache
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\obj\Debug\WordService.ProjectInstaller.resources
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\obj\Debug\WordService.WordService.resources
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\obj\Debug\WordService.csproj.GenerateResource.Cache
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\obj\Debug\iz.exe
+J:\Apps team\Business Solutions\Alan\Generic Staff App Form Portal\WordService\WordService\obj\Debug\iz.pdb

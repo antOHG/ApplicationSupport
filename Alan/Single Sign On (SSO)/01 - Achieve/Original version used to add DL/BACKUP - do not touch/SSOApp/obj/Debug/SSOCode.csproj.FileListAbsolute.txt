@@ -1,0 +1,15 @@
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\obj\Debug\ResolveAssemblyReference.cache
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\obj\Debug\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\obj\Debug\SSOApp.pdb
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\bin\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\bin\SSOApp.pdb
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\obj\Debug\ResolveAssemblyReference.cache
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\obj\Debug\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\bin\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\bin\SSOApp.pdb
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\obj\Debug\SSOApp.pdb
+\\ohgbstapp01\c$\Pilot\Pilot\onehousinggroup_Pilot\SSOApp\bin\SSOApp.dll
+\\ohgbstapp01\c$\Pilot\Pilot\onehousinggroup_Pilot\SSOApp\bin\SSOApp.pdb
+\\ohgbstapp01\c$\Pilot\Pilot\onehousinggroup_Pilot\SSOApp\obj\Debug\ResolveAssemblyReference.cache
+\\ohgbstapp01\c$\Pilot\Pilot\onehousinggroup_Pilot\SSOApp\obj\Debug\SSOApp.dll
+\\ohgbstapp01\c$\Pilot\Pilot\onehousinggroup_Pilot\SSOApp\obj\Debug\SSOApp.pdb

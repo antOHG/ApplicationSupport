@@ -1,0 +1,1 @@
+X:\Apps team\Alan\Silver Light\Customer Survey\V 1.0\CustomerSurvey3\CustomerSurvey3.Web\CustomerSurvey3.Web.csproj,635095893040000000,AccessDenied.aspx.cs,AccessDenied.aspx.designer.cs,GlobalSuppressions.cs,Models\User.cs,Properties\AssemblyInfo.cs,Services\SurveyService.cs,SurveyEntities.Designer.cs,SurveyEntities_annotation.cs,Surveys.aspx.cs,

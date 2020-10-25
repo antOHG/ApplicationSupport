@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\ohgint01\c$\Inetpub\wwwroot\Testing" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="SSO_TEST" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="True" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="06/26/2014 13:36:50" />
+    <file relUrl="bin/SSOApp.dll" publishTime="06/26/2014 13:56:28" />
+    <file relUrl="Default.aspx" publishTime="06/26/2014 13:42:45" />
+    <file relUrl="bin/SSOApp.pdb" publishTime="06/26/2014 13:56:28" />
+    <file relUrl="SSODefault.aspx" publishTime="09/14/2012 10:45:04" />
+    <file relUrl="test.aspx" publishTime="06/26/2014 13:39:45" />
+  </publishProfile>
+</publishData>

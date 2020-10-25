@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SurveyEntitiesStoreContainer" CdmEntityContainer="SurveyEntitiesContainer">
+    <EntitySetMapping Name="SurveyTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(SurveyEntities.SurveyType)">
+        <MappingFragment StoreEntitySet="SurveyTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyQuestions">
+      <EntityTypeMapping TypeName="IsTypeOf(SurveyEntities.SurveyQuestion)">
+        <MappingFragment StoreEntitySet="SurveyQuestions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ValidationRule" ColumnName="ValidationRule" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="SurveyTypeId" ColumnName="SurveyTypeId" />
+          <Condition ColumnName="OnSurvey" Value="1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyInstances">
+      <EntityTypeMapping TypeName="IsTypeOf(SurveyEntities.SurveyInstance)">
+        <MappingFragment StoreEntitySet="SurveyInstances">
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UHPersonNo" ColumnName="UHPersonNo" />
+          <ScalarProperty Name="UHTenantRef" ColumnName="UHTenantRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="SurveyTypeId" ColumnName="SurveyTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyAnswers">
+      <EntityTypeMapping TypeName="IsTypeOf(SurveyEntities.SurveyAnswer)">
+        <MappingFragment StoreEntitySet="SurveyAnswers">
+          <ScalarProperty Name="Ref" ColumnName="Ref" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="SurveyQuestionId" ColumnName="SurveyQuestionId" />
+          <ScalarProperty Name="SurveyInstanceId" ColumnName="SurveyInstanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lookups">
+      <EntityTypeMapping TypeName="IsTypeOf(SurveyEntities.Lookup)">
+        <MappingFragment StoreEntitySet="Lookups">
+          <ScalarProperty Name="UHRef" ColumnName="UHRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FindUHTenant" FunctionName="SurveyEntities.Store.u_sp_finduhtenant">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SurveyEntities.FindUHTenant_Result">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="UHTenancyRef" ColumnName="UHTenancyRef" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PersNo" ColumnName="PersNo" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="SurveyUsers">
+      <EntityTypeMapping TypeName="SurveyEntities.SurveyUser">
+        <MappingFragment StoreEntitySet="SurveyUsers">
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

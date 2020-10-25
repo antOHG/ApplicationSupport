@@ -1,0 +1,12 @@
+C:\Projects_Temp\Basheer\Achieve\Achieve\bin\Achieve.dll.config
+C:\Projects_Temp\Basheer\Achieve\Achieve\bin\Achieve.dll
+C:\Projects_Temp\Basheer\Achieve\Achieve\bin\Achieve.pdb
+C:\Projects_Temp\Basheer\Achieve\Achieve\obj\Debug\Achieve.dll
+C:\Projects_Temp\Basheer\Achieve\Achieve\obj\Debug\Achieve.pdb
+C:\Source\ApplicationSupport\SSO\Achieve\bin\Achieve.dll.config
+C:\Source\ApplicationSupport\SSO\Achieve\bin\Achieve.dll
+C:\Source\ApplicationSupport\SSO\Achieve\bin\Achieve.pdb
+C:\Source\ApplicationSupport\SSO\Achieve\obj\Debug\Achieve.csproj.CoreCompileInputs.cache
+C:\Source\ApplicationSupport\SSO\Achieve\obj\Debug\Achieve.dll
+C:\Source\ApplicationSupport\SSO\Achieve\obj\Debug\Achieve.pdb
+C:\Source\ApplicationSupport\SSO\Achieve\obj\Debug\Achieve.csprojAssemblyReference.cache

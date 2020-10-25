@@ -1,0 +1,70 @@
+﻿Installing assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Installing service WordService...
+Creating EventLog source WordService in log Application...
+Rolling back assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Restoring event log to previous state for source WordService.
+Installing assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Installing service WordService...
+Creating EventLog source WordService in log Application...
+Rolling back assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Restoring event log to previous state for source WordService.
+Installing assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Rolling back assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Installing assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Installing service WordService...
+Creating EventLog source WordService in log Application...
+Rolling back assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Restoring event log to previous state for source WordService.
+Installing assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Installing service WordService...
+Service WordService has been successfully installed.
+Creating EventLog source WordService in log Application...
+Committing assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Uninstalling assembly 'c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.InstallLog
+   assemblypath = c:\Users\Mark\Documents\Visual Studio 2015\Projects\WordService\WordService\bin\Debug\WordService.exe
+Removing EventLog source WordService.
+Service WordService is being removed from the system...
+Service WordService was successfully removed from the system.

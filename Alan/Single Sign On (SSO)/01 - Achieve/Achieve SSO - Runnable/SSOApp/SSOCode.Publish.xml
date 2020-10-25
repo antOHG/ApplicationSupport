@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="\\ohgfile\profiles$\Home\athompson\Desktop\Achieve" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="Default Web Site/Achieve" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/SSOApp.pdb" publishTime="06/25/2014 12:44:33" />
+    <file relUrl="SSODefault.aspx" publishTime="06/24/2014 18:21:51" />
+    <file relUrl="bin/SSOApp.dll" publishTime="06/25/2014 12:44:33" />
+    <file relUrl="Web.config" publishTime="06/25/2014 12:25:00" />
+  </publishProfile>
+</publishData>

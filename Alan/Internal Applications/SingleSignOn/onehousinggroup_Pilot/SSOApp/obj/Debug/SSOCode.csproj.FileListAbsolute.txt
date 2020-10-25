@@ -1,0 +1,15 @@
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\obj\Debug\ResolveAssemblyReference.cache
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\obj\Debug\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\obj\Debug\SSOApp.pdb
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\bin\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\C#\AESC#\SSOApp\bin\SSOApp.pdb
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\obj\Debug\ResolveAssemblyReference.cache
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\obj\Debug\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\bin\SSOApp.dll
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\bin\SSOApp.pdb
+D:\WorkArea\2.SSO\3.AESSSO\Testing\pasona\pasona_Stage\SSOApp\obj\Debug\SSOApp.pdb
+\\ohgfile01\user_H-N$\home\athompson\Desktop\SSO v2\New Folder\onehousinggroup_Pilot\SSOApp\bin\SSOApp.dll
+\\ohgfile01\user_H-N$\home\athompson\Desktop\SSO v2\New Folder\onehousinggroup_Pilot\SSOApp\bin\SSOApp.pdb
+\\ohgfile01\user_H-N$\home\athompson\Desktop\SSO v2\New Folder\onehousinggroup_Pilot\SSOApp\obj\Debug\ResolveAssemblyReference.cache
+\\ohgfile01\user_H-N$\home\athompson\Desktop\SSO v2\New Folder\onehousinggroup_Pilot\SSOApp\obj\Debug\SSOApp.dll
+\\ohgfile01\user_H-N$\home\athompson\Desktop\SSO v2\New Folder\onehousinggroup_Pilot\SSOApp\obj\Debug\SSOApp.pdb

@@ -1,0 +1,5 @@
+To run, you need to double click the SSOCode.sln.
+
+Not any other method.
+
+If you can't see any files, click the properties of the one you can and alter 

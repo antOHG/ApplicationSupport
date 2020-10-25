@@ -1,0 +1,6 @@
+C:\Source\ApplicationSupport\SAFAutomation\Automation\bin\Debug\Automation.exe.config
+C:\Source\ApplicationSupport\SAFAutomation\Automation\bin\Debug\Automation.exe
+C:\Source\ApplicationSupport\SAFAutomation\Automation\bin\Debug\Automation.pdb
+C:\Source\ApplicationSupport\SAFAutomation\Automation\obj\Debug\Automation.csprojResolveAssemblyReference.cache
+C:\Source\ApplicationSupport\SAFAutomation\Automation\obj\Debug\Automation.exe
+C:\Source\ApplicationSupport\SAFAutomation\Automation\obj\Debug\Automation.pdb

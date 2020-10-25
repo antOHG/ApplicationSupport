@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SurveyEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SurveyEntitiesStoreContainer">
+    <EntitySet Name="Lookups" EntityType="SurveyEntities.Store.Lookups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurveyAnswers" EntityType="SurveyEntities.Store.SurveyAnswers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurveyInstances" EntityType="SurveyEntities.Store.SurveyInstances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurveyQuestions" EntityType="SurveyEntities.Store.SurveyQuestions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurveyTypes" EntityType="SurveyEntities.Store.SurveyTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SurveyUsers" EntityType="SurveyEntities.Store.SurveyUsers" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_SurveyInstanceSurveyAnswer" Association="SurveyEntities.Store.FK_SurveyInstanceSurveyAnswer">
+      <End Role="SurveyInstances" EntitySet="SurveyInstances" />
+      <End Role="SurveyAnswers" EntitySet="SurveyAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyInstanceSurveyType" Association="SurveyEntities.Store.FK_SurveyInstanceSurveyType">
+      <End Role="SurveyTypes" EntitySet="SurveyTypes" />
+      <End Role="SurveyInstances" EntitySet="SurveyInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestionSurveyAnswer" Association="SurveyEntities.Store.FK_SurveyQuestionSurveyAnswer">
+      <End Role="SurveyQuestions" EntitySet="SurveyQuestions" />
+      <End Role="SurveyAnswers" EntitySet="SurveyAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyTypeSurveyQuestion" Association="SurveyEntities.Store.FK_SurveyTypeSurveyQuestion">
+      <End Role="SurveyTypes" EntitySet="SurveyTypes" />
+      <End Role="SurveyQuestions" EntitySet="SurveyQuestions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Lookups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="char" Nullable="false" MaxLength="4" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Order" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="UHRef" Type="char" MaxLength="3" />
+    <Property Name="ReportText" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SurveyAnswers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SurveyQuestionId" Type="int" Nullable="false" />
+    <Property Name="SurveyInstanceId" Type="int" Nullable="false" />
+    <Property Name="Ref" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SurveyInstances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="30" />
+    <Property Name="SurveyTypeId" Type="int" Nullable="false" />
+    <Property Name="UHTenantRef" Type="varchar" MaxLength="50" />
+    <Property Name="UHPersonNo" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Relationship" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SurveyQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="ValidationRule" Type="nvarchar(max)" />
+    <Property Name="Order" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="SurveyTypeId" Type="int" Nullable="false" />
+    <Property Name="OnSurvey" Type="bit" />
+    <Property Name="OnReport" Type="bit" />
+    <Property Name="ReportText" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SurveyTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SurveyUsers">
+    <Key>
+      <PropertyRef Name="user_name" />
+    </Key>
+    <Property Name="user_name" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_SurveyInstanceSurveyAnswer">
+    <End Role="SurveyInstances" Type="SurveyEntities.Store.SurveyInstances" Multiplicity="1" />
+    <End Role="SurveyAnswers" Type="SurveyEntities.Store.SurveyAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyInstances">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyAnswers">
+        <PropertyRef Name="SurveyInstanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyInstanceSurveyType">
+    <End Role="SurveyTypes" Type="SurveyEntities.Store.SurveyTypes" Multiplicity="1" />
+    <End Role="SurveyInstances" Type="SurveyEntities.Store.SurveyInstances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyInstances">
+        <PropertyRef Name="SurveyTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestionSurveyAnswer">
+    <End Role="SurveyQuestions" Type="SurveyEntities.Store.SurveyQuestions" Multiplicity="1" />
+    <End Role="SurveyAnswers" Type="SurveyEntities.Store.SurveyAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyAnswers">
+        <PropertyRef Name="SurveyQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyTypeSurveyQuestion">
+    <End Role="SurveyTypes" Type="SurveyEntities.Store.SurveyTypes" Multiplicity="1" />
+    <End Role="SurveyQuestions" Type="SurveyEntities.Store.SurveyQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyQuestions">
+        <PropertyRef Name="SurveyTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="u_sp_finduhtenant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

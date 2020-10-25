@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/CustomerSurvey3.Web_deploy" />
+  <setParameter name="SurveyEntitiesContainer-Web.config Connection String" value="metadata=res://*/SurveyEntities.csdl|res://*/SurveyEntities.ssdl|res://*/SurveyEntities.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=OHG2K5SQL01;Initial Catalog=survey;Integrated Security=True;MultipleActiveResultSets=True&quot;" />
+</parameters>

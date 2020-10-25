@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SurveyEntities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="SurveyEntitiesContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SurveyTypes" EntityType="SurveyEntities.SurveyType" />
+    <EntitySet Name="SurveyQuestions" EntityType="SurveyEntities.SurveyQuestion" />
+    <AssociationSet Name="SurveyTypeSurveyQuestion" Association="SurveyEntities.SurveyTypeSurveyQuestion">
+      <End Role="SurveyType" EntitySet="SurveyTypes" />
+      <End Role="SurveyQuestion" EntitySet="SurveyQuestions" />
+    </AssociationSet>
+    <EntitySet Name="SurveyInstances" EntityType="SurveyEntities.SurveyInstance" />
+    <EntitySet Name="SurveyAnswers" EntityType="SurveyEntities.SurveyAnswer" />
+    <EntitySet Name="Lookups" EntityType="SurveyEntities.Lookup" />
+    <AssociationSet Name="SurveyInstanceSurveyType" Association="SurveyEntities.SurveyInstanceSurveyType">
+      <End Role="SurveyInstance" EntitySet="SurveyInstances" />
+      <End Role="SurveyType" EntitySet="SurveyTypes" />
+    </AssociationSet>
+    <AssociationSet Name="SurveyQuestionSurveyAnswer" Association="SurveyEntities.SurveyQuestionSurveyAnswer">
+      <End Role="SurveyQuestion" EntitySet="SurveyQuestions" />
+      <End Role="SurveyAnswer" EntitySet="SurveyAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="SurveyInstanceSurveyAnswer" Association="SurveyEntities.SurveyInstanceSurveyAnswer">
+      <End Role="SurveyInstance" EntitySet="SurveyInstances" />
+      <End Role="SurveyAnswer" EntitySet="SurveyAnswers" />
+    </AssociationSet>
+    <FunctionImport Name="FindUHTenant" ReturnType="Collection(SurveyEntities.FindUHTenant_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="SurveyUsers" EntityType="SurveyEntities.SurveyUser" />
+  </EntityContainer>
+  <EntityType Name="SurveyType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Details" Nullable="false" DefaultValue="''" />
+    <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="true" />
+    <NavigationProperty Name="SurveyQuestions" Relationship="SurveyEntities.SurveyTypeSurveyQuestion" FromRole="SurveyType" ToRole="SurveyQuestion" />
+    <NavigationProperty Name="SurveyInstances" Relationship="SurveyEntities.SurveyInstanceSurveyType" FromRole="SurveyType" ToRole="SurveyInstance" />
+  </EntityType>
+  <EntityType Name="SurveyQuestion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Text" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="ValidationRule" Nullable="true" />
+    <Property Type="Decimal" Name="Order" Nullable="false" DefaultValue="0" Precision="9" Scale="2" />
+    <NavigationProperty Name="SurveyType" Relationship="SurveyEntities.SurveyTypeSurveyQuestion" FromRole="SurveyQuestion" ToRole="SurveyType" />
+    <Property Type="Int32" Name="SurveyTypeId" Nullable="false" />
+    <NavigationProperty Name="SurveyAnswers" Relationship="SurveyEntities.SurveyQuestionSurveyAnswer" FromRole="SurveyQuestion" ToRole="SurveyAnswer" />
+  </EntityType>
+  <Association Name="SurveyTypeSurveyQuestion">
+    <End Type="SurveyEntities.SurveyType" Role="SurveyType" Multiplicity="1" />
+    <End Type="SurveyEntities.SurveyQuestion" Role="SurveyQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyQuestion">
+        <PropertyRef Name="SurveyTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SurveyInstance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="String" Name="User" Nullable="true" MaxLength="30" />
+    <NavigationProperty Name="SurveyType" Relationship="SurveyEntities.SurveyInstanceSurveyType" FromRole="SurveyInstance" ToRole="SurveyType" />
+    <Property Type="Int32" Name="SurveyTypeId" Nullable="false" />
+    <NavigationProperty Name="SurveyAnswers" Relationship="SurveyEntities.SurveyInstanceSurveyAnswer" FromRole="SurveyInstance" ToRole="SurveyAnswer" />
+    <Property Type="String" Name="UHTenantRef" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="UHPersonNo" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Relationship" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SurveyAnswer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Text" Nullable="false" />
+    <NavigationProperty Name="SurveyQuestion" Relationship="SurveyEntities.SurveyQuestionSurveyAnswer" FromRole="SurveyAnswer" ToRole="SurveyQuestion" />
+    <Property Type="Int32" Name="SurveyQuestionId" Nullable="false" />
+    <NavigationProperty Name="SurveyInstance" Relationship="SurveyEntities.SurveyInstanceSurveyAnswer" FromRole="SurveyAnswer" ToRole="SurveyInstance" />
+    <Property Type="Int32" Name="SurveyInstanceId" Nullable="false" />
+    <Property Type="String" Name="Ref" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" Nullable="false" Unicode="false" FixedLength="true" MaxLength="4" />
+    <Property Type="String" Name="Text" Nullable="false" />
+    <Property Type="Decimal" Name="Order" Nullable="false" Precision="9" Scale="2" />
+    <Property Type="Boolean" Name="Active" Nullable="false" DefaultValue="true" />
+    <Property Type="String" Name="UHRef" MaxLength="3" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <Association Name="SurveyInstanceSurveyType">
+    <End Type="SurveyEntities.SurveyInstance" Role="SurveyInstance" Multiplicity="*" />
+    <End Type="SurveyEntities.SurveyType" Role="SurveyType" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyInstance">
+        <PropertyRef Name="SurveyTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SurveyQuestionSurveyAnswer">
+    <End Type="SurveyEntities.SurveyQuestion" Role="SurveyQuestion" Multiplicity="1" />
+    <End Type="SurveyEntities.SurveyAnswer" Role="SurveyAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyQuestion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyAnswer">
+        <PropertyRef Name="SurveyQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SurveyInstanceSurveyAnswer">
+    <End Type="SurveyEntities.SurveyInstance" Role="SurveyInstance" Multiplicity="1" />
+    <End Type="SurveyEntities.SurveyAnswer" Role="SurveyAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyInstance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SurveyAnswer">
+        <PropertyRef Name="SurveyInstanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="SearchResult">
+    <Property Type="String" Name="Text" Nullable="false" />
+    <Property Type="Int32" Name="Value" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="FindUHTenant_Result">
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="44" />
+    <Property Type="String" Name="UHTenancyRef" Nullable="true" MaxLength="124" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="Int32" Name="PersNo" Nullable="false" />
+    <Property Type="String" Name="Tenure" Nullable="false" />
+    <Property Type="String" Name="Region" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="SurveyUser">
+    <Key>
+      <PropertyRef Name="user_name" />
+    </Key>
+    <Property Type="String" Name="user_name" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="active" Nullable="false" />
+  </EntityType>
+</Schema>
