@@ -1,0 +1,10 @@
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\bin\Debug\DocTransfer.exe.config
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\bin\Debug\DocTransfer.exe
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\bin\Debug\DocTransfer.pdb
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\bin\Debug\Renci.SshNet.dll
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\bin\Debug\Renci.SshNet.xml
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\obj\Debug\DocTransfer.csproj.CoreCompileInputs.cache
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\obj\Debug\DocTransfer.csproj.CopyComplete
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\obj\Debug\DocTransfer.exe
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\obj\Debug\DocTransfer.pdb
+C:\Basheer\Datawarehouse\DocTransfer\DocTransfer\obj\Debug\DocTransfer.csprojAssemblyReference.cache
