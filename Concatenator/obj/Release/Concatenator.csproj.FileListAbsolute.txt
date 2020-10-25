@@ -1,0 +1,14 @@
+C:\Basheer\UH\Concatenator\Concatenator\bin\Concatenator.dll.config
+C:\Basheer\UH\Concatenator\Concatenator\bin\Concatenator.dll
+C:\Basheer\UH\Concatenator\Concatenator\bin\Concatenator.pdb
+C:\Basheer\UH\Concatenator\Concatenator\obj\Release\Concatenator.csproj.CoreCompileInputs.cache
+C:\Basheer\UH\Concatenator\Concatenator\obj\Release\Concatenator.dll
+C:\Basheer\UH\Concatenator\Concatenator\obj\Release\Concatenator.pdb
+C:\Basheer\UH\Concatenator\Concatenator\obj\Release\Concatenator.csprojAssemblyReference.cache
+C:\Source\BAU\Utility\Concatenator\Concatenator\bin\Concatenator.dll.config
+C:\Source\BAU\Utility\Concatenator\Concatenator\bin\Concatenator.dll
+C:\Source\BAU\Utility\Concatenator\Concatenator\bin\Concatenator.pdb
+C:\Source\BAU\Utility\Concatenator\Concatenator\obj\Release\Concatenator.csprojAssemblyReference.cache
+C:\Source\BAU\Utility\Concatenator\Concatenator\obj\Release\Concatenator.csproj.CoreCompileInputs.cache
+C:\Source\BAU\Utility\Concatenator\Concatenator\obj\Release\Concatenator.dll
+C:\Source\BAU\Utility\Concatenator\Concatenator\obj\Release\Concatenator.pdb
