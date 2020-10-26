@@ -1,0 +1,447 @@
+source_db_ref,name,search_name,manager_code,default_currency_code
+001,668 Commercial Road,001,ACTIV,GBP
+002,Archibald Street,002,ACTIV,GBP
+003,Back Church Lane,003,ACTIV,GBP
+004,Bow Road,004,ACTIV,GBP
+005,Brabazon Estate,005,ACTIV,GBP
+006,Brick Lane,006,ACTIV,GBP
+007,Bruce Road,007,ACTIV,GBP
+008,Byng Street / Alpha Grove,008,ACTIV,GBP
+009,Clementina Court,009,ACTIV,GBP
+010,Coburn Road,010,ACTIV,GBP
+011,Denmark Place,011,ACTIV,GBP
+012,Devons Road,012,ACTIV,GBP
+013,DIYSO,013,ACTIV,GBP
+014,Dominica Close,014,ACTIV,GBP
+015,Driffield Road,015,ACTIV,GBP
+016,Dyson Road,016,ACTIV,GBP
+017,E. India Dock,017,ACTIV,GBP
+018,Eastern Building,018,ACTIV,GBP
+019,Edgar Road,019,ACTIV,GBP
+020,Emmerson Building,020,ACTIV,GBP
+021,Evershed House,021,INACT,GBP
+022,Fallstaff Building,022,ACTIV,GBP
+023,Faraday Road,023,ACTIV,GBP
+024,Flower & Dean,024,ACTIV,GBP
+025,Forest Gate SRB,025,ACTIV,GBP
+026,Gill Street,026,ACTIV,GBP
+027,Glasier Court,027,INACT,GBP
+028,Grange Road,028,ACTIV,GBP
+029,Grantham Road,029,ACTIV,GBP
+030,Green Dragon Yard,030,ACTIV,GBP
+031,Jameson Court,031,ACTIV,GBP
+032,John Smith Mews,032,ACTIV,GBP
+033,Karachi House,033,ACTIV,GBP
+034,Knapp Road,034,ACTIV,GBP
+035,LDDC,035,ACTIV,GBP
+036,Lime Harbour,036,ACTIV,GBP
+037,Luxembourg Mews,037,ACTIV,GBP
+038,Magdalen Street,038,ACTIV,GBP
+039,Manor Road,039,ACTIV,GBP
+040,Mantle Way,040,ACTIV,GBP
+041,Marnie Court,041,ACTIV,GBP
+042,McCabe Court,042,ACTIV,GBP
+043,Newham Street properties,043,ACTIV,GBP
+044,North Street,044,ACTIV,GBP
+045,Orient Wharf,045,ACTIV,GBP
+046,Paternoster House,046,ACTIV,GBP
+047,Peter Heathfield House,047,ACTIV,GBP
+048,Piggot Street,048,ACTIV,GBP
+049,Pixley Street,049,ACTIV,GBP
+050,Rabbits Road,050,ACTIV,GBP
+051,Romford Rd.,051,ACTIV,GBP
+052,Romford Road,052,INACT,GBP
+053,Sailors Palace,053,ACTIV,GBP
+054,Selby Street,054,ACTIV,GBP
+055,Solent Rise,055,ACTIV,GBP
+056,Spanby Road,056,ACTIV,GBP
+057,St Leonards Road,057,ACTIV,GBP
+058,Stevedore Street,058,ACTIV,GBP
+059,Suttons Wharf,059,ACTIV,GBP
+060,Tate & Lyle,060,ACTIV,GBP
+061,Teasel Way,061,ACTIV,GBP
+062,The Edge,062,INACT,GBP
+063,Tolpuddle Avenue,063,ACTIV,GBP
+064,Turners Road,064,ACTIV,GBP
+065,Umberston Street,065,ACTIV,GBP
+066,Vale Road,066,ACTIV,GBP
+067,Virginia Quay,067,ACTIV,GBP
+068,Virginia Quay II,068,ACTIV,GBP
+069,W. India Dock Road,069,ACTIV,GBP
+070,Watney / Tarling Estate,070,ACTIV,GBP
+071,Windmill House,071,ACTIV,GBP
+072,Winkley Wharf,072,ACTIV,GBP
+073,Winsor Park,073,ACTIV,GBP
+074,Woodcocks,074,ACTIV,GBP
+075,Woodgrange Road,075,ACTIV,GBP
+076,Woodlands Infill,076,ACTIV,GBP
+077,Arlington Road,077,ACTIV,GBP
+078,Auden Place,078,ACTIV,GBP
+079,Brooks Road,079,ACTIV,GBP
+080,Camden Gardens,080,ACTIV,GBP
+081,Gilbeys Yard,081,ACTIV,GBP
+082,Juniper Crescent,082,ACTIV,GBP
+083,Chichester Court,083,ACTIV,GBP
+084,Fountain Mews,084,ACTIV,GBP
+085,Grays Inn,085,ACTIV,GBP
+086,Great Titchfield Street,086,ACTIV,GBP
+087,Hillview Estate,087,ACTIV,GBP
+088,Little Russell Street,088,ACTIV,GBP
+089,Roden Court,089,ACTIV,GBP
+090,Barking Rd Phase 2,090,ACTIV,GBP
+091,Bow Bridge,091,ACTIV,GBP
+092,Mastmaker,092,ACTIV,GBP
+093,Poplar High Street,093,ACTIV,GBP
+094,Lambs Passage,094,ACTIV,GBP
+095,Poundfield Estate,095,ACTIV,GBP
+096,Abingdon Walk,096,ACTIV,GBP
+097,Agar Grove,097,ACTIV,GBP
+098,Ainger Road,098,ACTIV,GBP
+099,Albany Street,099,ACTIV,GBP
+100,Albert Road,100,ACTIV,GBP
+101,Albion Road,101,ACTIV,GBP
+102,Ampton Place,102,ACTIV,GBP
+103,Ampton Street,103,ACTIV,GBP
+104,Anson Road,104,ACTIV,GBP
+105,Argyle Square,105,ACTIV,GBP
+106,Argyle Street,106,ACTIV,GBP
+107,Arkill Court,107,ACTIV,GBP
+108,Arlington Estate,108,ACTIV,GBP
+109,Balcombe Street,109,ACTIV,GBP
+110,Barkantine Estate,110,ACTIV,GBP
+111,Barking Road,111,ACTIV,GBP
+112,Bartholomew Road,112,ACTIV,GBP
+113,Bayham Street,113,ACTIV,GBP
+114,Beethoven Street,114,ACTIV,GBP
+115,Belford Court,115,ACTIV,GBP
+116,Belmont Street,116,ACTIV,GBP
+117,Belsize Square,117,ACTIV,GBP
+118,Bethune Road,118,ACTIV,GBP
+119,Bevatone House,119,ACTIV,GBP
+120,Biddles Close,120,ACTIV,GBP
+121,Bideford Spur,121,ACTIV,GBP
+122,Birkenhead Street,122,ACTIV,GBP
+123,Bliss Mews,123,ACTIV,GBP
+124,Bloomsbury Street,124,ACTIV,GBP
+125,Blossom Road,125,ACTIV,GBP
+126,Bollo Lane Estate,126,ACTIV,GBP
+127,Brant Court,127,ACTIV,GBP
+128,Brecknock Road,128,ACTIV,GBP
+129,Burghley Road,129,ACTIV,GBP
+130,Burnet House,130,ACTIV,GBP
+131,Burton Place,131,ACTIV,GBP
+132,Caledonian Road,132,ACTIV,GBP
+133,Calthorpe Street,133,ACTIV,GBP
+134,Camden Park Road,134,ACTIV,GBP
+135,Camden Road,135,ACTIV,GBP
+136,Cantelowes Road,136,ACTIV,GBP
+137,Cardigan Close,137,ACTIV,GBP
+138,Casella Road,138,ACTIV,GBP
+139,Castlehaven Road,139,ACTIV,GBP
+140,Caversham Road,140,ACTIV,GBP
+141,Church Street,141,ACTIV,GBP
+142,Clapton Square,142,ACTIV,GBP
+143,Coldharbour Lane,143,ACTIV,GBP
+144,College Park Road,144,ACTIV,GBP
+145,Coram Street,145,ACTIV,GBP
+146,Dance Square,146,ACTIV,GBP
+147,Delancey Street,147,ACTIV,GBP
+148,Delta Point,148,ACTIV,GBP
+149,Denver Road,149,ACTIV,GBP
+150,Dew Grass Grove,150,ACTIV,GBP
+151,Dial House,151,ACTIV,GBP
+152,Doughty Street,152,ACTIV,GBP
+153,Dunollie Road,153,ACTIV,GBP
+154,Elderfield Road,154,ACTIV,GBP
+155,Esther Randall Court,155,ACTIV,GBP
+156,Eve House,156,ACTIV,GBP
+157,Evens Patriot Square,157,ACTIV,GBP
+158,Fairmead Road,158,ACTIV,GBP
+159,Falkland Road,159,ACTIV,GBP
+160,First Avenue,160,ACTIV,GBP
+161,Frederick Street,161,ACTIV,GBP
+162,Gallery House,162,ACTIV,GBP
+163,Garlinge Court,163,ACTIV,GBP
+164,Garlinge Road,164,ACTIV,GBP
+165,George Scott House,165,ACTIV,GBP
+166,Goodge Place,166,ACTIV,GBP
+167,Gosfield Street,167,ACTIV,GBP
+168,Gough Street,168,ACTIV,GBP
+169,Grafton Road,169,ACTIV,GBP
+170,Grays Inn Road,170,ACTIV,GBP
+171,Great Chapel Street,171,ACTIV,GBP
+172,Green Lane,172,ACTIV,GBP
+173,Green Lanes,173,ACTIV,GBP
+174,Greenham Mill,174,ACTIV,GBP
+175,Greenland Road,175,ACTIV,GBP
+176,Hampden Lane,176,ACTIV,GBP
+177,Hampstead Road,177,ACTIV,GBP
+178,Harbury Court,178,ACTIV,GBP
+179,Harmood Street,179,ACTIV,GBP
+180,Hatcham Park Road,180,ACTIV,GBP
+181,Haverstock Hill,181,INACT,GBP
+182,Hazlitt Court,182,ACTIV,GBP
+183,Herbert Street,183,ACTIV,GBP
+184,Hillier House,184,ACTIV,GBP
+185,Hitchcock House,185,ACTIV,GBP
+186,Holloway Road,186,ACTIV,GBP
+187,Hornsey Road,187,ACTIV,GBP
+188,Jamestown Road,188,ACTIV,GBP
+189,Jerningham Road,189,INACT,GBP
+190,John Wetherby & Thomas Frye,190,ACTIV,GBP
+191,Kays Court,191,ACTIV,GBP
+192,Kelly Street,192,ACTIV,GBP
+193,Kidwells Close,193,ACTIV,GBP
+194,Kings Arms Court,194,ACTIV,GBP
+195,Kings Cross Road,195,ACTIV,GBP
+196,Kings Terrace,196,ACTIV,GBP
+197,Kingsbridge Estate,197,ACTIV,GBP
+198,Langham Street,198,ACTIV,GBP
+199,Lankaster Gardens Estate,199,ACTIV,GBP
+200,Leigh Street,200,ACTIV,GBP
+201,Leighton Grove,201,ACTIV,GBP
+202,Leonard Place,202,ACTIV,GBP
+203,Leyla House,203,ACTIV,GBP
+204,Lismore Park,204,ACTIV,GBP
+205,Lithos Road,205,ACTIV,GBP
+206,Lodge Lane,206,ACTIV,GBP
+207,Mansfield Road,207,ACTIV,GBP
+208,Marchmont Street,208,ACTIV,GBP
+209,Mare Street,209,ACTIV,GBP
+210,Marlborough Road,210,ACTIV,GBP
+211,Marquis Road,211,ACTIV,GBP
+212,Marylands Road,212,ACTIV,GBP
+213,Matthews Yard,213,ACTIV,GBP
+214,Maygrove Road,214,ACTIV,GBP
+215,Mercer Street,215,ACTIV,GBP
+216,Mercers Road,216,ACTIV,GBP
+217,Mitcham Lane,217,ACTIV,GBP
+218,Montpelier Grove,218,ACTIV,GBP
+219,Mornington Crescent,219,ACTIV,GBP
+220,Nebula Court,220,ACTIV,GBP
+221,Norbiton Avenue,221,ACTIV,GBP
+222,North Villas,222,ACTIV,GBP
+223,Northdown Street,223,ACTIV,GBP
+224,Oak House,224,ACTIV,GBP
+225,Oakford Road,225,ACTIV,GBP
+226,Oakley Square,226,ACTIV,GBP
+227,Ospringe Road,227,ACTIV,GBP
+228,Pakenham Street,228,ACTIV,GBP
+229,Park Road,229,ACTIV,GBP
+230,Petros Gardens,230,ACTIV,GBP
+231,Point One Apartments,231,ACTIV,GBP
+232,Priory Heights,232,ACTIV,GBP
+233,Rick Roberts Way,233,ACTIV,GBP
+234,Riding House Street,234,ACTIV,GBP
+235,Rifle Street,235,ACTIV,GBP
+236,Ripton,236,ACTIV,GBP
+237,Rodmarton Street,237,ACTIV,GBP
+238,Rokeby House,238,ACTIV,GBP
+239,Royal College Street,239,ACTIV,GBP
+240,Rubicon Court,240,ACTIV,GBP
+241,Salcombe Lodge,241,ACTIV,GBP
+242,Samuda Estate,242,ACTIV,GBP
+243,Selcraig House,243,ACTIV,GBP
+244,Seymour Place,244,ACTIV,GBP
+245,Shelton Street,245,ACTIV,GBP
+246,Sington House,246,ACTIV,GBP
+247,South Villas,247,ACTIV,GBP
+248,St Johns Estate,248,ACTIV,GBP
+249,St Johns Mansions,249,ACTIV,GBP
+250,St Pancras Way,250,ACTIV,GBP
+251,St Williams Court,251,ACTIV,GBP
+252,St. Augustines Road,252,ACTIV,GBP
+253,St. Chads Street,253,ACTIV,GBP
+254,St. Cuthberts Road,254,ACTIV,GBP
+255,St. Johns Road,255,ACTIV,GBP
+256,St. Pauls Crescent,256,ACTIV,GBP
+257,Surrendale Place,257,ACTIV,GBP
+258,Suttons Wharf North Estate,258,ACTIV,GBP
+259,Swinton Street,259,ACTIV,GBP
+260,Talacre Road,260,ACTIV,GBP
+261,Tarling  Sheridan Heights,261,ACTIV,GBP
+262,The Oxygen,262,ACTIV,GBP
+263,The Turnery,263,ACTIV,GBP
+264,Third Avenue,264,ACTIV,GBP
+265,Timber Wharf,265,ACTIV,GBP
+266,Tollington Way,266,ACTIV,GBP
+267,Tottenham Street,267,ACTIV,GBP
+268,Tower House,268,ACTIV,GBP
+269,Valentine House,269,ACTIV,GBP
+270,Vulcan Terrace,270,INACT,GBP
+271,Walterton Road,271,ACTIV,GBP
+272,Ward Road,272,ACTIV,GBP
+273,Warwick Avenue,273,ACTIV,GBP
+274,Westbourne Road,274,ACTIV,GBP
+275,White Lion Street,275,ACTIV,GBP
+276,Willes Road,276,ACTIV,GBP
+277,Wilmot Place,277,ACTIV,GBP
+278,Windward Court,278,ACTIV,GBP
+279,Wren Street,279,ACTIV,GBP
+280,York Way,280,ACTIV,GBP
+281,All Saints Court,281,ACTIV,GBP
+282,Ardrossan Close,282,ACTIV,GBP
+283,Anerley Station,283,ACTIV,GBP
+284,Charrington Court,284,ACTIV,GBP
+285,Attebrouche Court,285,ACTIV,GBP
+286,Azalea Close,286,ACTIV,GBP
+287,Bath Road,287,ACTIV,GBP
+288,Bawley Terrace,288,ACTIV,GBP
+289,Blunden Drive,289,ACTIV,GBP
+290,Brackstone Close,290,ACTIV,GBP
+291,Bridport Way,291,ACTIV,GBP
+292,Red Cottage Drive,292,ACTIV,GBP
+293,Honor Lea House,293,ACTIV,GBP
+294,Saxon Court,294,ACTIV,GBP
+295,Honeyfield,295,ACTIV,GBP
+296,Pinefield,296,ACTIV,GBP
+297,Chalton Street,297,ACTIV,GBP
+298,Chapel Arches,298,ACTIV,GBP
+299,Childs Close,299,ACTIV,GBP
+300,College East,300,ACTIV,GBP
+301,577 Commercial Road,301,ACTIV,GBP
+302,Compton Passage,302,ACTIV,GBP
+303,Donnington Gardens,303,ACTIV,GBP
+304,Dunbar Close,304,ACTIV,GBP
+305,Dunstans Drive,305,ACTIV,GBP
+306,Emerald House,306,ACTIV,GBP
+307,Fawe Street,307,ACTIV,GBP
+308,Joan Court,308,ACTIV,GBP
+309,Guerdon Place,309,ACTIV,GBP
+310,Hardy Close,310,ACTIV,GBP
+311,Heywood Court Close,311,ACTIV,GBP
+312,Hollyfield,312,ACTIV,GBP
+313,Jeremiah House,313,ACTIV,GBP
+314,John Sinclair Court,314,ACTIV,GBP
+315,Jupp Road West,315,ACTIV,GBP
+316,Leonard Street,316,ACTIV,GBP
+317,Leonard Place,317,ACTIV,GBP
+318,Maplefield,318,ACTIV,GBP
+319,Oval Road,319,ACTIV,GBP
+320,Park Corner,320,ACTIV,GBP
+321,Peacock Place,321,ACTIV,GBP
+322,Rosefield,322,ACTIV,GBP
+323,Hazlefield,323,ACTIV,GBP
+324,Annabelle Court,324,ACTIV,GBP
+325,Essame Close,325,ACTIV,GBP
+326,Willowfield,326,ACTIV,GBP
+327,Byron Court,327,ACTIV,GBP
+328,Navigation Court,328,ACTIV,GBP
+329,All Nations House,329,ACTIV,GBP
+330,Rainbow Park,330,ACTIV,GBP
+331,Fortess Road,331,ACTIV,GBP
+332,Wendling,332,INACT,GBP
+333,Wise Road,333,ACTIV,GBP
+334,Westgate Apartments,334,ACTIV,GBP
+335,Gloucester Place,335,ACTIV,GBP
+336,Foley Street,336,ACTIV,GBP
+337,Raymond Chadburn,337,ACTIV,GBP
+338,Rutherford Close,338,ACTIV,GBP
+339,Sach Road,339,ACTIV,GBP
+340,Evering Road,340,ACTIV,GBP
+341,East India Dock Road,341,ACTIV,GBP
+342,Stirling Way,342,ACTIV,GBP
+343,Leslie Forster House,343,ACTIV,GBP
+344,The Spens,344,ACTIV,GBP
+345,Shirland Road,345,ACTIV,GBP
+346,Spring Lane,346,ACTIV,GBP
+347,Whites Row,347,ACTIV,GBP
+348,Stratford Road,348,ACTIV,GBP
+349,Bernard Hegarty Lodge,349,ACTIV,GBP
+350,Bridge Gardens,350,ACTIV,GBP
+351,Green Road,351,ACTIV,GBP
+352,Manor Road,352,ACTIV,GBP
+353,Navarino Road,353,ACTIV,GBP
+354,Omnium Court,354,ACTIV,GBP
+355,Purley Place,355,ACTIV,GBP
+356,Rushmore Road,356,ACTIV,GBP
+357,Signal House,357,ACTIV,GBP
+358,Silver House,358,ACTIV,GBP
+359,Sindle Close,359,ACTIV,GBP
+360,Stonefield Park,360,ACTIV,GBP
+361,Willis Yard,361,ACTIV,GBP
+362,King Harry Lane,362,ACTIV,GBP
+363,Orsman Road,363,ACTIV,GBP
+364,Arbour Square,364,INACT,GBP
+365,Arcola Street,365,ACTIV,GBP
+366,Argyle Street,366,INACT,GBP
+367,Argyle Walk,367,INACT,GBP
+368,Torquay Spur,368,INACT,GBP
+369,Boadicea Close,369,INACT,GBP
+370,Rivington Apartments,370,ACTIV,GBP
+371,Frederick Str. Phs 2,371,ACTIV,GBP
+372,Allen Garden Phs 4,372,ACTIV,GBP
+373,Garden Place,373,ACTIV,GBP
+374,Haggerston Road,374,ACTIV,GBP
+375,Handyside Street,375,ACTIV,GBP
+376,Old Castle Street,376,ACTIV,GBP
+377,Battersea Park Road,377,ACTIV,GBP
+378,Canning Road,378,ACTIV,GBP
+379,Railway Terrace,379,ACTIV,GBP
+380,Hardwick Square,380,ACTIV,GBP
+381,Kingsland Road,381,ACTIV,GBP
+382,Pear Tree Street,382,ACTIV,GBP
+383,Roseberry Mansions,383,ACTIV,GBP
+384,The Hub,384,ACTIV,GBP
+385,Bury Street,385,ACTIV,GBP
+386,STREET PROPERTY,386,ACTIV,GBP
+387,Sherwood Gardens,387,ACTIV,GBP
+389,Brent Court,389,ACTIV,GBP
+390,St John Street,390,ACTIV,GBP
+391,Allcroft Road,391,ACTIV,GBP
+392,Arun House,392,ACTIV,GBP
+393,Baldwin Court,393,ACTIV,GBP
+394,Benwell Road,394,ACTIV,GBP
+395,Blundell Road,395,ACTIV,GBP
+396,Bolsover Street,396,ACTIV,GBP
+397,Bravington Place,397,ACTIV,GBP
+398,Brownlow Mews,398,ACTIV,GBP
+399,Celandine Grove,399,ACTIV,GBP
+400,Chetwynd Road,400,ACTIV,GBP
+401,Circa Apartments,401,ACTIV,GBP
+402,Claddagh Court,402,ACTIV,GBP
+403,Coombe Lane,403,ACTIV,GBP
+404,Dartmouth Park Hill,404,ACTIV,GBP
+405,Dendridge Close,405,ACTIV,GBP
+406,Drummond Street,406,ACTIV,GBP
+407,Foxborough,407,ACTIV,GBP
+408,Fulham Road,408,ACTIV,GBP
+409,Greenwood Avenue,409,ACTIV,GBP
+410,Hartham Road,410,ACTIV,GBP
+411,Hawthorne Court,411,ACTIV,GBP
+412,Highbury Grove,412,ACTIV,GBP
+413,Hunters Way,413,ACTIV,GBP
+414,Jerningham Road,414,ACTIV,GBP
+415,Kenninghall Road,415,ACTIV,GBP
+416,Leverton Street,416,ACTIV,GBP
+417,Mapleton Road,417,ACTIV,GBP
+418,Meridian House,418,ACTIV,GBP
+419,Mildenhall Road,419,ACTIV,GBP
+420,Moor Furlong,420,ACTIV,GBP
+421,Mozart Street,421,ACTIV,GBP
+422,Plender Street,422,ACTIV,GBP
+423,Quiberon Court,423,ACTIV,GBP
+424,Ramney Drive,424,ACTIV,GBP
+425,Redlands Road,425,ACTIV,GBP
+426,Richmond Road,426,ACTIV,GBP
+427,Roby Drive,427,ACTIV,GBP
+428,Saltram Crescent,428,ACTIV,GBP
+429,Sandall Road,429,ACTIV,GBP
+430,Sawyers Crescent,430,ACTIV,GBP
+431,Sutton Court,431,ACTIV,GBP
+432,The Gates,432,ACTIV,GBP
+433,The Water Meadows,433,ACTIV,GBP
+434,Thicket Road,434,ACTIV,GBP
+435,Varndell Street,435,ACTIV,GBP
+436,Wells Street,436,ACTIV,GBP
+437,Woodberry Grove,437,ACTIV,GBP
+438,Hoover Tower,438,ACTIV,GBP
+439,Kingsbridge Estate,439,INACT,GBP
+440,Lowden Court,440,ACTIV,GBP
+441,Indescon Court,441,ACTIV,GBP
+442,Egleton House,442,ACTIV,GBP
+443,Lamb Walk,443,ACTIV,GBP
+444,Leeward Court,444,ACTIV,GBP
+445,Wenlock Road,445,ACTIV,GBP
+950,Deleted Properties,950,INACT,GBP
+999,Street Properties,999,ACTIV,GBP

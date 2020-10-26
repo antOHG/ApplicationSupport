@@ -1,0 +1,9 @@
+option batch abort
+option confirm off
+open sftp://OneHousing:Kf8oyNRa@live.oneserve.co.uk/ -hostkey="ssh-rsa 2048 b0:f2:e0:39:c8:c6:b7:41:0f:b3:06:9a:ad:a2:f5:16" -passive=on
+cd /OneHousing/Datacut
+option transfer binary
+lcd G:\Temp
+get OneHousing_DataCut.bak
+close
+exit

@@ -1,0 +1,8 @@
+option batch abort
+option confirm off
+open sftp://OneHousing:Kf8oyNRa@ftp.oneserve.co.uk/files/ftp_test/Test/SunPeriod -passive=on
+option transfer binary
+lcd C:\SFTP\Files
+put current_sun_period.txt
+close
+exit

@@ -1,0 +1,8 @@
+option batch abort
+option confirm off
+open ftp://devapp:Dev@pp!!@10.1.2.110/files/ftp_test/Test/Alerts -passive=on
+option transfer binary
+lcd C:\SFTP\Files
+put Alerts.xml
+close
+exit

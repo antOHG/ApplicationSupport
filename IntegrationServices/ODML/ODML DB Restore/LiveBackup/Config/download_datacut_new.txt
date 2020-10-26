@@ -1,0 +1,8 @@
+option batch abort
+option confirm off
+open sftp://OneHousing:Kf8oyNRa@live.oneserve.co.uk/OneHousing/Datacut -passive=on
+option transfer binary
+lcd G:\Temp
+get OneHousing_DataCut.bak
+close
+exit

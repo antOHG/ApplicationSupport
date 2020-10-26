@@ -1,0 +1,8 @@
+option batch abort
+option confirm off
+open ftp://SolUpload:C0c4C0l4!@ftp.tracegroup.com/SolUpload -passive=on
+option transfer binary
+lcd C:\Files
+put bluebox_unit_void.csv
+close
+exit

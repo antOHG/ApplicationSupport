@@ -1,0 +1,2433 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/29/2014 4:26:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W000926"
+  DTS:CreatorName="OHG\athompson"
+  DTS:DTSID="{D61C33E1-7190-4B8C-A3AD-70B36FAA02D9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="crm_contacts"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{7F93F9EC-6B1A-4D04-82C7-F61C40CE6505}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Documotive CRM V2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{49D79562-0DB0-4463-9D47-AEBC163EC0BC}"
+      DTS:ObjectName="Documotive CRM V2">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ConnString_DocCRMV2]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=OHG2K8SQLDEV01;Initial Catalog=DocumotiveCRM_V2;Provider=SQLNCLI11;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LogServer]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5A43F7C4-15BA-40E7-AC06-0E8DC2446292}"
+      DTS:ObjectName="LogServer">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ConnString_LogServer]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=OHGINTDAT01;Initial Catalog=master;Provider=SQLNCLI11;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Uh630live]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D8E648FB-75CC-4E82-AA02-CB17CB870103}"
+      DTS:ObjectName="Uh630live">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ConnString_UHl630live]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=OHG2K8SQLDEV01\OHG2K5SQLDEV01;Initial Catalog=uh630live;Provider=SQLNCLI11;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="LogServer"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{C7756DEF-5264-4DDC-882A-AFE1A2FC0B56}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FC2B65E9-EC5E-40EC-BBEC-41F036D1B0A5}"
+      DTS:ObjectName="ConnString_DocCRMV2">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Provider=SQLNCLI11;Data Source=OHG2K8SQLDEV01;Integrated Security=SSPI;Initial Catalog=DocumotiveCRM_V2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{499AB895-F481-4741-BDC3-0B8F59F43A9E}"
+      DTS:ObjectName="ConnString_LogServer">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Provider=SQLNCLI11;Data Source=OHGINTDAT01;Integrated Security=SSPI;Initial Catalog=master</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E3E1FD89-2484-46A4-AE58-725CE6037C56}"
+      DTS:ObjectName="ConnString_UHl630live">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=OHG2K8SQLDEV01\OHG2K5SQLDEV01;Initial Catalog=uh630live;Provider=SQLNCLI11;Integrated Security=SSPI;</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">4,7,OnError,13,OnQueryCancel,12,OnTaskFailed,9,OnWarning</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnQueryCancel"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{C7756DEF-5264-4DDC-882A-AFE1A2FC0B56}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get data out of CRM and into UH"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A757B2D2-3692-45C1-AA50-D99CF1356ED9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get data out of CRM and into UH"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CM_TBL_CONTACT_DETAILS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT   REFERENCE ,CONTACT_DETAILS_TYPE, CONTACT_DETAIL
+FROM [dbo].[CM_TBL_CONTACT_DETAILS] 
+WHERE CONTACT_DETAILS_UPDATED_DATE IS NOT NULL AND CONTACT_DETAIL != ''
+and REFERENCE  NOT LIKE '%[A-Z]%' and REFERENCE NOT LIKE '%[a-z]%' and CONTACT_DETAILS_TYPE NOT IN (5,6)
+
+AND CONTACT_DETAILS_UPDATED_DATE &gt;= cast(getdate() as date)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Documotive CRM V2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Documotive CRM V2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[REFERENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].ExternalColumns[REFERENCE]"
+                      length="100"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[REFERENCE]"
+                      name="REFERENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAILS_TYPE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].ExternalColumns[CONTACT_DETAILS_TYPE]"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAILS_TYPE]"
+                      name="CONTACT_DETAILS_TYPE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAIL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].ExternalColumns[CONTACT_DETAIL]"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAIL]"
+                      name="CONTACT_DETAIL"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].ExternalColumns[REFERENCE]"
+                      dataType="wstr"
+                      length="100"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].ExternalColumns[CONTACT_DETAILS_TYPE]"
+                      dataType="i4"
+                      name="CONTACT_DETAILS_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].ExternalColumns[CONTACT_DETAIL]"
+                      dataType="wstr"
+                      length="50"
+                      name="CONTACT_DETAIL" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[REFERENCE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[REFERENCE]"
+                      name="REFERENCE" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[CONTACT_DETAILS_TYPE]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[CONTACT_DETAILS_TYPE]"
+                      name="CONTACT_DETAILS_TYPE" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[CONTACT_DETAIL]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[CONTACT_DETAIL]"
+                      name="CONTACT_DETAIL" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CM_TBL_CONTACT_DETAILS ALT 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT   
+	 REFERENCE 
+	,[ALTERNATE_CONTACT1]
+	,[ALTERNATE_CONTACT1_DETAILS]
+	,[ALTERNATE_CONTACT1_NOTES]
+FROM [dbo].[CM_TBL_CONTACT_ALTERNATE1_DETAILS] 
+WHERE UPDATED_DATE IS NOT NULL AND ALTERNATE_CONTACT1_DETAILS != ''
+and REFERENCE  NOT LIKE '%[A-Z]%' and REFERENCE NOT LIKE '%[a-z]%'
+
+AND UPDATED_DATE &gt;= cast(getdate() as date)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Documotive CRM V2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Documotive CRM V2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[REFERENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[REFERENCE]"
+                      length="100"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[REFERENCE]"
+                      name="REFERENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT1]"
+                      length="10"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1]"
+                      name="ALTERNATE_CONTACT1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_DETAILS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT1_DETAILS]"
+                      length="250"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_DETAILS]"
+                      name="ALTERNATE_CONTACT1_DETAILS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_NOTES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT1_NOTES]"
+                      length="500"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_NOTES]"
+                      name="ALTERNATE_CONTACT1_NOTES"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[REFERENCE]"
+                      dataType="wstr"
+                      length="100"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT1]"
+                      dataType="wstr"
+                      length="10"
+                      name="ALTERNATE_CONTACT1" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT1_DETAILS]"
+                      dataType="wstr"
+                      length="250"
+                      name="ALTERNATE_CONTACT1_DETAILS" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT1_NOTES]"
+                      dataType="wstr"
+                      length="500"
+                      name="ALTERNATE_CONTACT1_NOTES" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[REFERENCE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[REFERENCE]"
+                      name="REFERENCE" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT1]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT1]"
+                      name="ALTERNATE_CONTACT1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT1_DETAILS]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT1_DETAILS]"
+                      name="ALTERNATE_CONTACT1_DETAILS" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT1_NOTES]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT1_NOTES]"
+                      name="ALTERNATE_CONTACT1_NOTES" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CM_TBL_CONTACT_DETAILS ALT 2"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT   
+	 REFERENCE 
+	,[ALTERNATE_CONTACT2]
+	,[ALTERNATE_CONTACT2_DETAILS]
+	,[ALTERNATE_CONTACT2_NOTES]
+FROM [dbo].[CM_TBL_CONTACT_ALTERNATE2_DETAILS] 
+WHERE UPDATED_DATE IS NOT NULL AND ALTERNATE_CONTACT2_DETAILS != ''
+and REFERENCE  NOT LIKE '%[A-Z]%' and REFERENCE NOT LIKE '%[a-z]%'
+
+AND UPDATED_DATE &gt;=  cast(getdate() as date)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Documotive CRM V2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Documotive CRM V2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[REFERENCE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[REFERENCE]"
+                      length="100"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[REFERENCE]"
+                      name="REFERENCE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT2]"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2]"
+                      name="ALTERNATE_CONTACT2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_DETAILS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT2_DETAILS]"
+                      length="250"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_DETAILS]"
+                      name="ALTERNATE_CONTACT2_DETAILS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_NOTES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT2_NOTES]"
+                      length="500"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_NOTES]"
+                      name="ALTERNATE_CONTACT2_NOTES"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[REFERENCE]"
+                      dataType="wstr"
+                      length="100"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT2]"
+                      dataType="i4"
+                      name="ALTERNATE_CONTACT2" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT2_DETAILS]"
+                      dataType="wstr"
+                      length="250"
+                      name="ALTERNATE_CONTACT2_DETAILS" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].ExternalColumns[ALTERNATE_CONTACT2_NOTES]"
+                      dataType="wstr"
+                      length="500"
+                      name="ALTERNATE_CONTACT2_NOTES" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[REFERENCE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[REFERENCE]"
+                      name="REFERENCE" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT2]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT2]"
+                      name="ALTERNATE_CONTACT2" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT2_DETAILS]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT2_DETAILS]"
+                      name="ALTERNATE_CONTACT2_DETAILS" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT2_NOTES]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ALTERNATE_CONTACT2_NOTES]"
+                      name="ALTERNATE_CONTACT2_NOTES" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input].Columns[REFERENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="REFERENCE"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[REFERENCE]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input].Columns[CONTACT_DETAIL]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CONTACT_DETAIL"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAIL]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input].Columns[ALT_CONTACT]"
+                      cachedDataType="wstr"
+                      cachedName="ALT_CONTACT"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Output].Columns[ALT_CONTACT]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input].Columns[CONTACT_DETAILS_TYPE]"
+                      cachedDataType="i4"
+                      cachedName="CONTACT_DETAILS_TYPE"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAILS_TYPE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]"
+                      name="Copy of REFERENCE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[REFERENCE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CONTACT_DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="70"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CONTACT_DETAIL]"
+                      name="Copy of CONTACT_DETAIL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAIL]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]"
+                      name="Copy of ALT_CONTACT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Output].Columns[ALT_CONTACT]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CONTACT_DETAILS_TYPE]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CONTACT_DETAILS_TYPE]"
+                      name="Copy of CONTACT_DETAILS_TYPE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAILS_TYPE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion ALT 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input].Columns[REFERENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="REFERENCE"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[REFERENCE]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input].Columns[ALT_CONTACT]"
+                      cachedDataType="wstr"
+                      cachedLength="523"
+                      cachedName="ALT_CONTACT"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Output].Columns[ALT_CONTACT]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input].Columns[ALTERNATE_CONTACT1_DETAILS]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="ALTERNATE_CONTACT1_DETAILS"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_DETAILS]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input].Columns[ALTERNATE_CONTACT1]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ALTERNATE_CONTACT1"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]"
+                      name="Copy of REFERENCE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[REFERENCE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT1_DETAILS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="70"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT1_DETAILS]"
+                      name="Copy of ALTERNATE_CONTACT1_DETAILS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_DETAILS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]"
+                      name="Copy of ALT_CONTACT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Output].Columns[ALT_CONTACT]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT1]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT1]"
+                      name="Copy of ALTERNATE_CONTACT1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion ALT 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input].Columns[REFERENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="REFERENCE"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[REFERENCE]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input].Columns[ALT_CONTACT]"
+                      cachedDataType="wstr"
+                      cachedLength="523"
+                      cachedName="ALT_CONTACT"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Output].Columns[ALT_CONTACT]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input].Columns[ALTERNATE_CONTACT2_DETAILS]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="ALTERNATE_CONTACT2_DETAILS"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_DETAILS]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input].Columns[ALTERNATE_CONTACT2]"
+                      cachedDataType="i4"
+                      cachedName="ALTERNATE_CONTACT2"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]"
+                      name="Copy of REFERENCE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[REFERENCE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT2_DETAILS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="70"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT2_DETAILS]"
+                      name="Copy of ALTERNATE_CONTACT2_DETAILS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_DETAILS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]"
+                      name="Copy of ALT_CONTACT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Output].Columns[ALT_CONTACT]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT2]"
+                      dataType="i1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT2]"
+                      name="Copy of ALTERNATE_CONTACT2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\Derived Columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Derived Columns.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Derived Columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Output].Columns[ALT_CONTACT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Output].Columns[ALT_CONTACT]"
+                      name="ALT_CONTACT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">""</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Derived Columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Columns ALT 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Inputs[Derived Column Input].Columns[ALTERNATE_CONTACT1_NOTES]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="ALTERNATE_CONTACT1_NOTES"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_NOTES]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Output].Columns[ALT_CONTACT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="523"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Output].Columns[ALT_CONTACT]"
+                      name="ALT_CONTACT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Alternative Contact 1: " + #{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT1_NOTES]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Alternative Contact 1: " + ALTERNATE_CONTACT1_NOTES</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Columns ALT 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Inputs[Derived Column Input].Columns[ALTERNATE_CONTACT2_NOTES]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="ALTERNATE_CONTACT2_NOTES"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_NOTES]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Output].Columns[ALT_CONTACT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="523"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Output].Columns[ALT_CONTACT]"
+                      name="ALT_CONTACT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Alternative Contact 2: " + #{Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output].Columns[ALTERNATE_CONTACT2_NOTES]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Alternative Contact 2: " + ALTERNATE_CONTACT2_NOTES</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[crm_contacts]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get data out of CRM and into UH\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Uh630live]"
+                  connectionManagerRefId="Package.ConnectionManagers[Uh630live]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of REFERENCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of REFERENCE"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REFERENCE]"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of REFERENCE]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CONTACT_DETAIL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="70"
+                      cachedName="Copy of CONTACT_DETAIL"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTACT_DETAIL]"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAIL]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CONTACT_DETAILS_TYPE]"
+                      cachedDataType="i1"
+                      cachedName="Copy of CONTACT_DETAILS_TYPE"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTACT_DETAILS_TYPE]"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAILS_TYPE]" />
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ALT_CONTACT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of ALT_CONTACT"
+                      externalMetadataColumnId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ALT_CONTACT]"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of ALT_CONTACT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[REFERENCE]"
+                      dataType="i4"
+                      name="REFERENCE" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTACT_DETAILS_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CONTACT_DETAILS_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CONTACT_DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="70"
+                      name="CONTACT_DETAIL" />
+                    <externalMetadataColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ALT_CONTACT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ALT_CONTACT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get data out of CRM and into UH\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[Copy of REFERENCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of REFERENCE"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of REFERENCE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[Copy of CONTACT_DETAIL]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="70"
+                      cachedName="Copy of CONTACT_DETAIL"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CONTACT_DETAIL]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAIL]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[Copy of ALT_CONTACT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of ALT_CONTACT"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of ALT_CONTACT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[Copy of CONTACT_DETAILS_TYPE]"
+                      cachedDataType="i1"
+                      cachedName="Copy of CONTACT_DETAILS_TYPE"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CONTACT_DETAILS_TYPE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAILS_TYPE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[REFERENCE]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="REFERENCE"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[REFERENCE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[REFERENCE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[CONTACT_DETAILS_TYPE]"
+                      cachedDataType="i4"
+                      cachedName="CONTACT_DETAILS_TYPE"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAILS_TYPE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[CONTACT_DETAILS_TYPE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[CONTACT_DETAIL]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CONTACT_DETAIL"
+                      lineageId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output].Columns[CONTACT_DETAIL]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[CONTACT_DETAIL]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1].Columns[ALT_CONTACT]"
+                      cachedDataType="wstr"
+                      cachedName="ALT_CONTACT"
+                      lineageId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Output].Columns[ALT_CONTACT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[ALT_CONTACT]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 2].Columns[Copy of REFERENCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of REFERENCE"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of REFERENCE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 2].Columns[Copy of ALT_CONTACT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of ALT_CONTACT"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of ALT_CONTACT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 2].Columns[Copy of ALTERNATE_CONTACT1_DETAILS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="70"
+                      cachedName="Copy of ALTERNATE_CONTACT1_DETAILS"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT1_DETAILS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAIL]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 2].Columns[Copy of ALTERNATE_CONTACT1]"
+                      cachedDataType="i1"
+                      cachedName="Copy of ALTERNATE_CONTACT1"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAILS_TYPE]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 3].Columns[Copy of REFERENCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of REFERENCE"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of REFERENCE]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of REFERENCE]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 3].Columns[Copy of ALT_CONTACT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of ALT_CONTACT"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALT_CONTACT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of ALT_CONTACT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 3].Columns[Copy of ALTERNATE_CONTACT2_DETAILS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="70"
+                      cachedName="Copy of ALTERNATE_CONTACT2_DETAILS"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT2_DETAILS]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAIL]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 3].Columns[Copy of ALTERNATE_CONTACT2]"
+                      cachedDataType="i1"
+                      cachedName="Copy of ALTERNATE_CONTACT2"
+                      lineageId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output].Columns[Copy of ALTERNATE_CONTACT2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAILS_TYPE]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[REFERENCE]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[REFERENCE]"
+                      name="REFERENCE" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[CONTACT_DETAILS_TYPE]"
+                      dataType="i4"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[CONTACT_DETAILS_TYPE]"
+                      name="CONTACT_DETAILS_TYPE" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[CONTACT_DETAIL]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[CONTACT_DETAIL]"
+                      name="CONTACT_DETAIL" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[ALT_CONTACT]"
+                      dataType="wstr"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[ALT_CONTACT]"
+                      name="ALT_CONTACT" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of REFERENCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of REFERENCE]"
+                      name="Copy of REFERENCE" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAIL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="70"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAIL]"
+                      name="Copy of CONTACT_DETAIL" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of ALT_CONTACT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of ALT_CONTACT]"
+                      name="Copy of ALT_CONTACT" />
+                    <outputColumn
+                      refId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAILS_TYPE]"
+                      dataType="i1"
+                      lineageId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1].Columns[Copy of CONTACT_DETAILS_TYPE]"
+                      name="Copy of CONTACT_DETAILS_TYPE" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[Data Conversion Output]"
+              endId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 1]"
+              name="Data Conversion Output"
+              startId="Package\Get data out of CRM and into UH\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[Data Conversion Output1]"
+              endId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 2]"
+              name="Data Conversion Output"
+              startId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[Data Conversion Output2]"
+              endId="Package\Get data out of CRM and into UH\Union All.Inputs[Union All Input 3]"
+              name="Data Conversion Output"
+              startId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[Derived Column Output]"
+              endId="Package\Get data out of CRM and into UH\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Get data out of CRM and into UH\Derived Columns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[Derived Column Output1]"
+              endId="Package\Get data out of CRM and into UH\Data Conversion ALT 1.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[Derived Column Output2]"
+              endId="Package\Get data out of CRM and into UH\Data Conversion ALT 2.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[OLE DB Source Output]"
+              endId="Package\Get data out of CRM and into UH\Derived Columns.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[OLE DB Source Output1]"
+              endId="Package\Get data out of CRM and into UH\Derived Columns ALT 1.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[OLE DB Source Output2]"
+              endId="Package\Get data out of CRM and into UH\Derived Columns ALT 2.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Get data out of CRM and into UH.Paths[Union All Output 1]"
+              endId="Package\Get data out of CRM and into UH\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Get data out of CRM and into UH\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\INSERT into comms (UH)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FA4BA663-CDAB-4494-9B7A-4256DB20744F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="INSERT into comms (UH)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8E648FB-75CC-4E82-AA02-CB17CB870103}"
+          SQLTask:SqlStatementSource="declare @d as datetime&#xA;set @d =getdate()&#xA; INSERT INTO [dbo].[comms]&#xA;           (--[comms_sid]&#xA;           [entity_sid] ,[comms_type] ,[comms_value] ,[comms_desc] ,[comms_value_other] ,[comms_name]&#xA;           ,[comms_advocate] ,[comms_default],[con_key]  ,[entity_table]   ,[comms_default_contact]   ,[comms_default_method]&#xA;           ,[comp_avail] ,[comp_display])&#xA;SELECT     crm_contacts.REFERENCE AS entity_sid, --ie member_sid&#xA;                      CASE WHEN [CONTACT_DETAILS_TYPE] = 0 THEN 'MP' WHEN [CONTACT_DETAILS_TYPE] = 1 THEN 'T' WHEN [CONTACT_DETAILS_TYPE] = 2 THEN 'E' WHEN [CONTACT_DETAILS_TYPE]&#xA;                       = 3 THEN 'WE' WHEN [CONTACT_DETAILS_TYPE] = 4 THEN 'WT' ELSE '' END AS comms_type, &#xA;                       crm_contacts.CONTACT_DETAIL AS comms_value, &#xA;                     -- member.house_ref, &#xA;                      RTRIM(member.title) + ' ' + RTRIM(member.initials) + ' ' + RTRIM(member.surname) AS comms_desc, &#xA;                      '' as comms_value_other&#xA;                   ,crm_contacts.ALT_CONTACT + ' - updated from crm - '+''+convert(nvarchar(25), @d, 103)  as comms_name&#xA;           ,'0' as comms_advocate&#xA;           ,'0' as comms_default&#xA;            ,  househ.con_key as con_key&#xA;           ,'member'  as entity_table&#xA;           ,'0' as comms_default_contact&#xA;           ,'0' as comms_default_method&#xA;           ,'001' as comp_avail&#xA;           ,'' as comp_display&#xA;                  &#xA;FROM         househ RIGHT OUTER JOIN&#xA;                      member ON househ.house_ref = member.house_ref RIGHT OUTER JOIN&#xA;                      crm_contacts ON member.member_sid = crm_contacts.REFERENCE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4B367B73-A0ED-4020-9CD3-DAB7DAE4E00B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D8E648FB-75CC-4E82-AA02-CB17CB870103}"
+          SQLTask:SqlStatementSource="Truncate table crm_contacts;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A598FF2-DD22-49CF-BD20-8DD272409492}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get data out of CRM and into UH" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F33D3C4A-86CF-4CBC-A663-5B542A468C42}"
+      DTS:From="Package\Get data out of CRM and into UH"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\INSERT into comms (UH)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160.8,44"
+          Id="Package\Get data out of CRM and into UH"
+          TopLeft="68.4056603773585,103.38679245283" />
+        <NodeLayout
+          Size="168.8,44"
+          Id="Package\INSERT into comms (UH)"
+          TopLeft="66.1199466657951,203.11509186007" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate tables"
+          TopLeft="81.3490564675344,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="149.077358422446,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,53.88679245283"
+              Start="0,0"
+              End="0,46.38679245283">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.38679245283" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="149.662803521577,147.38679245283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,55.7282994072398"
+              Start="0,0"
+              End="0,48.2282994072398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.2282994072398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[Documotive CRM V2]">
+    <DataSourceID>Documotive CRM V2</DataSourceID>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[Uh630live]">
+    <DataSourceID>Uh630live</DataSourceID>
+  </ConnectionManager>
+  <TaskHost
+    design-time-name="Package\Get data out of CRM and into UH">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\Get data out of CRM and into UH\Derived Columns ALT 2"
+          TopLeft="613.642867857096,81.7705904746138" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Get data out of CRM and into UH\Union All"
+          TopLeft="358.095244193564,235.607845768384" />
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\Get data out of CRM and into UH\Data Conversion"
+          TopLeft="34.1857142565202,148.088235868962" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Get data out of CRM and into UH\Derived Columns"
+          TopLeft="32.5714291261167,78.1647067317501" />
+        <NodeLayout
+          Size="248,41.6"
+          Id="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1"
+          TopLeft="305.142862339409,10.4000001458561" />
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\Get data out of CRM and into UH\Derived Columns ALT 1"
+          TopLeft="328.785719978566,81.2294127342198" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Get data out of CRM and into UH\OLE DB Destination"
+          TopLeft="337.823814794969,325.21764607501" />
+        <NodeLayout
+          Size="248,41.6"
+          Id="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2"
+          TopLeft="590.000010217939,10.9411778862501" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS"
+          TopLeft="5.50000000000001,5.50000000000007" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Get data out of CRM and into UH\Data Conversion ALT 2"
+          TopLeft="615.2571529875,146.800001896129" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Get data out of CRM and into UH\Data Conversion ALT 1"
+          TopLeft="330.40000510897,146.258824155735" />
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[OLE DB Source Output2]"
+          TopLeft="711.221439037518,52.5411778862501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29.2294125883637"
+              Start="0,0"
+              End="0,21.7294125883637">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.7294125883637" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[OLE DB Source Output1]"
+          TopLeft="426.364291158988,52.0000001458561">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29.2294125883637"
+              Start="0,0"
+              End="0,21.7294125883637">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.7294125883637" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[OLE DB Source Output]"
+          TopLeft="113.235714563058,47.1000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,31.06470673175"
+              Start="0,0"
+              End="0,23.56470673175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.56470673175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[Derived Column Output2]"
+          TopLeft="708.850010422298,123.370590474614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,23.4294114215153"
+              Start="0,0"
+              End="0,15.9294114215153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9294114215153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[Derived Column Output1]"
+          TopLeft="423.992862543768,122.82941273422">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,23.4294114215149"
+              Start="0,0"
+              End="0,15.9294114215149">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9294114215149" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[Derived Column Output]"
+          TopLeft="112.378571691318,119.76470673175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28.3235291372121"
+              Start="0,0"
+              End="0,20.8235291372121">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8235291372121" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[Data Conversion Output2]"
+          TopLeft="709.2571529875,188.400001896129">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-261.961908793936,47.2078438722549"
+              Start="0,0"
+              End="-261.961908793936,39.7078438722549">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7965333415569" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7965333415569"
+                    Point2="0,30.7965333415569"
+                    Point3="-4,30.7965333415569" />
+                  <mssgle:LineSegment
+                    End="-257.961908793936,30.7965333415569" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-257.961908793936,30.7965333415569"
+                    Point2="-261.961908793936,30.7965333415569"
+                    Point3="-261.961908793936,34.7965333415569" />
+                  <mssgle:LineSegment
+                    End="-261.961908793936,39.7078438722549" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[Data Conversion Output1]"
+          TopLeft="421.647624651267,187.858824155735">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47.7490216126494"
+              Start="0,0"
+              End="0,40.2490216126494">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.2490216126494" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[Data Conversion Output]"
+          TopLeft="112.58571425652,189.688235868962">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="277.909529937043,45.9196098994219"
+              Start="0,0"
+              End="277.909529937043,38.4196098994219">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9561403635714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9561403635714"
+                    Point2="0,29.9561403635714"
+                    Point3="4,29.9561403635714" />
+                  <mssgle:LineSegment
+                    End="273.909529937043,29.9561403635714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="273.909529937043,29.9561403635714"
+                    Point2="277.909529937043,29.9561403635714"
+                    Point3="277.909529937043,33.9561403635714" />
+                  <mssgle:LineSegment
+                    End="277.909529937043,38.4196098994219" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get data out of CRM and into UH.Paths[Union All Output 1]"
+          TopLeft="421.359529494266,277.207845768384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48.0098003066259"
+              Start="0,0"
+              End="0,40.5098003066259">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5098003066259" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get data out of CRM and into UH\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS ALT 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get data out of CRM and into UH\CM_TBL_CONTACT_DETAILS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

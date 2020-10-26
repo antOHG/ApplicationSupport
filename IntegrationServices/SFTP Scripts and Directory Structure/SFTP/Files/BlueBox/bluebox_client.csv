@@ -1,0 +1,4 @@
+source_db_ref,default_currency_code,name,building_name,road_number,road_name_1,road_name_2,town,county,post_code
+OHG,GBP,One Housing Group,Suttons Wharf South,44 Palmers Road,,,London,,E2 0TA
+CSL,GBP,CityStyle Living,Suttons Wharf South,44 Palmers Road,,,London,,E2 0TA
+TPA,GBP,TPHA,Suttons Wharf South,44 Palmers Road,,,London,,E2 0TA

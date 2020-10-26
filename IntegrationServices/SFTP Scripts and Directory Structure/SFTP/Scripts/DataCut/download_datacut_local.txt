@@ -1,0 +1,8 @@
+option batch abort
+option confirm off
+open ftp://devapp:Dev@pp!!@10.1.2.110/files/ftp_test/Test/DataCut -passive=on
+option transfer binary
+lcd \\OHG2K8SQLDEV01\D$\DataCutBackup
+get OneHousing_DataCut_PROD.bak
+close
+exit

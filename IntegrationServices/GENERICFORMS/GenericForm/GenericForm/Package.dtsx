@@ -1,0 +1,415 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/2/2017 2:08:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="W5759"
+  DTS:CreatorName="OHG\cgaddam"
+  DTS:DTSID="{4F0732E9-568A-4B74-9F83-22E41B7623A6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{DBF51282-40DB-4E4E-BED2-3BA431A095EF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.GenericForms]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{86751519-FB2E-4D93-955B-30F3B797183A}"
+      DTS:ObjectName="LocalHost.GenericForms">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=GenericForms;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{044D79B2-5971-4830-8EA0-15211BACFC35}"
+      DTS:ObjectName="DataSourceId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">2</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4BCA028A-058C-4F37-9FF0-F62081C869EE}"
+      DTS:ObjectName="FormsDataBaseName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">[365Agile.Portal.Test]</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D5CDC732-B895-471E-8FC3-5484A238614F}"
+      DTS:ObjectName="FormsServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">OHGEDMSQLTEST01</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{352F8F84-CCC9-4AC2-9787-857F4CE9ECE7}"
+      DTS:ObjectName="Form_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Asbestos Survey</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C19B1DCC-4763-4DAD-BFD5-B3913B81D2E9}"
+      DTS:ObjectName="GenericForms">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=.;Initial Catalog=One.Complaints;Provider=SQLNCLI11;Integrated Security=SSPI;</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0B2C5DF7-376F-4397-B10C-3EF7253F4723}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Data into Generic Forms"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5DF4A4AF-DA57-4039-BCAA-FFC280E64D6B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Data into Generic Forms">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Load Data into Generic Forms\Capture Forms and FormFieldsData"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{73E4F860-5FED-4158-B1E6-F9AC8EF0A92E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Capture Forms and FormFieldsData"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86751519-FB2E-4D93-955B-30F3B797183A}"
+              SQLTask:SqlStatementSource="EXEC usp_CaptureFormsAndFields ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::DataSourceId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::FormsServerName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="$Package::FormsDataBaseName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="$Package::Form_Name"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Data into Generic Forms\Get Completed Forms data for Form Instance"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{37E143E1-342E-48E4-ACF1-B57A9FA91C03}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Completed Forms data for Form Instance"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86751519-FB2E-4D93-955B-30F3B797183A}"
+              SQLTask:SqlStatementSource=" exec  [dbo].[usp_GetNewCompletedForms]?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::DataSourceId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::FormsServerName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="$Package::FormsDataBaseName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Data into Generic Forms\Load data into FormPermissions"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6ECD0B62-5C52-4403-BB27-95E773AFE0B2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load data into FormPermissions"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86751519-FB2E-4D93-955B-30F3B797183A}"
+              SQLTask:SqlStatementSource="exec [dbo].[usp_ImportPermissions] ?,?,?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::DataSourceId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="$Package::FormsServerName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="$Package::FormsDataBaseName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Data into Generic Forms\Load data into UHReference_Group"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{509940E7-9E67-4176-B4F0-A8ADA7ABFDD5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load data into UHReference_Group"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86751519-FB2E-4D93-955B-30F3B797183A}"
+              SQLTask:SqlStatementSource=" exec [dbo].[usp_UpdateUHReferenceGroup] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Load Data into Generic Forms\Truncate all tables Data"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F945C9EF-E05D-4947-AD73-4CFAF4653707}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate all tables Data"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{86751519-FB2E-4D93-955B-30F3B797183A}"
+              SQLTask:SqlStatementSource="DELETE FROM [dbo].[AsbestosRequest]&#xA;&#xA;DELETE FROM [dbo].[DataSource]&#xA;&#xA;DELETE FROM [dbo].[Element]&#xA;&#xA;DELETE FROM [dbo].[EmailRule]&#xA;&#xA;DELETE FROM [dbo].[Files]&#xA;&#xA;DELETE FROM [dbo].[Form]&#xA;&#xA;DELETE FROM [dbo].[FormAction]&#xA;&#xA;DELETE FROM [dbo].[FormActionInstance]&#xA;&#xA;DELETE FROM [dbo].[FormActionInstance_FormFieldInstance]&#xA;&#xA;DELETE FROM [dbo].[FormActionInstance_x]&#xA;&#xA;DELETE FROM [dbo].[FormField]&#xA;&#xA;DELETE FROM [dbo].[FormFieldInstance]&#xA;&#xA;DELETE FROM [dbo].[FormInstance]&#xA;&#xA;DELETE FROM [dbo].[FormPermission]&#xA;&#xA;DELETE FROM [dbo].[LdapInformation]&#xA;&#xA;DELETE FROM [dbo].[LookupSet]&#xA;&#xA;DELETE FROM [dbo].[LookupSetMember]&#xA;&#xA;DELETE FROM [dbo].[SignatureImage]&#xA;&#xA;DELETE FROM [dbo].[UHReference_Group]&#xA;&#xA;DELETE FROM  [dbo].[UserSignature]&#xA;&#xA;DELETE FROM [interface].[Defintition]&#xA;&#xA;DELETE FROM [interface].[Error]&#xA;&#xA;DELETE FROM [interface].[FieldMap]&#xA;&#xA;DELETE FROM [interface].[FormMigrationHistory]&#xA;&#xA;DELETE FROM [interface].[IFDefinition]&#xA;&#xA;DELETE FROM [interface].[RequiredFFIField]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F0F4F9BE-2BCF-460E-85BF-105D790B992C}"
+          DTS:From="Package\Load Data into Generic Forms\Truncate all tables Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Load Data into Generic Forms\Capture Forms and FormFieldsData" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{0DA104CF-7525-4567-B1B0-01911950B363}"
+          DTS:From="Package\Load Data into Generic Forms\Capture Forms and FormFieldsData"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Load Data into Generic Forms\Load data into FormPermissions" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{521DD50B-79B7-4530-966E-A88287A6663D}"
+          DTS:From="Package\Load Data into Generic Forms\Load data into FormPermissions"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Load Data into Generic Forms\Load data into UHReference_Group" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{B746DDCE-9869-4746-8680-DD818B56A041}"
+          DTS:From="Package\Load Data into Generic Forms\Load data into UHReference_Group"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Load Data into Generic Forms\Get Completed Forms data for Form Instance" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="254,56"
+          Id="Package\Load Data into Generic Forms\Truncate all tables Data"
+          TopLeft="58,10" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Load Data into Generic Forms\Capture Forms and FormFieldsData"
+          TopLeft="63,94" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Load Data into Generic Forms\Load data into FormPermissions"
+          TopLeft="72,166" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Load Data into Generic Forms\Load data into UHReference_Group"
+          TopLeft="69,240" />
+        <EdgeLayout
+          Id="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint]"
+          TopLeft="185.75,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint 1]"
+          TopLeft="187,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint 2]"
+          TopLeft="190.25,208">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="247,44"
+          Id="Package\Load Data into Generic Forms\Get Completed Forms data for Form Instance"
+          TopLeft="74,325" />
+        <EdgeLayout
+          Id="Package\Load Data into Generic Forms.PrecedenceConstraints[Constraint 3]"
+          TopLeft="195.25,282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="400,422"
+          Size="400,465"
+          Id="Package\Load Data into Generic Forms"
+          TopLeft="431,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
