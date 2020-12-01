@@ -1,0 +1,13 @@
+use [DocumotiveWorkflowTrain]
+
+select * from sys.database_files --Copy the name to the SHRINKFILE
+GO  
+ALTER DATABASE [DocumotiveWorkflowTrain]
+SET RECOVERY SIMPLE
+GO  
+DBCC SHRINKFILE ('DocumotiveWorkflowTest_log', 1);  
+GO  
+ALTER DATABASE [DocumotiveWorkflowTrain]
+SET RECOVERY FULL;  
+GO 
+----------
