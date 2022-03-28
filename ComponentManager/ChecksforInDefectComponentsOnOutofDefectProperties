@@ -1,0 +1,35 @@
+    *//Check for defect components for out of defect properties//*    
+        
+        USE uh630live
+
+
+		select p.prop_ref, p.handover, DATEADD(YEAR,p.u_defect_lenght,p.handover) AS expirydate, p.u_defect_lenght, ct.Name, c.Code,
+		CASE
+		WHEN cs.IsDefault = 0 THEN s.Name
+		END AS AlternateSupplier,
+		CASE
+		WHEN cs.IsDefault = 1 THEN s.Name
+		END AS DefaultSupplier
+		from property p
+		inner join [OHGPRODDAT01].[One.Components].[dbo].[Component] c on  
+		c.PropertyReference COLLATE DATABASE_DEFAULT =  CONVERT(Varchar,p.prop_ref) COLLATE DATABASE_DEFAULT
+		INNER JOIN [OHGPRODDAT01].[One.Components].[dbo].[ComponentType] ct on ct.Id = c.ComponentType_Id 
+		inner join [OHGPRODDAT01].[One.Components].[dbo].[ComponentSupplier] cs on cs.ComponentId = c.Id
+		INNER JOIN [OHGPRODDAT01].[One.Components].[dbo].[Supplier] s on s.Id =cs.SupplierId
+		where ct.ComponentTypeCategory_Id = 2
+		and c.IsDeleted = 0
+		and p.handover != '1900-01-01'
+		and DATEADD(YEAR,p.u_defect_lenght,p.handover) <= GETDATE()
+
+		group by p.prop_ref, p.handover, DATEADD(YEAR,p.u_defect_lenght,p.handover), p.u_defect_lenght, ct.Name, c.Code,
+		CASE
+		WHEN cs.IsDefault = 0 THEN s.Name
+		END,
+		CASE
+		WHEN cs.IsDefault = 1 THEN s.Name
+		END
+
+			
+		order by prop_ref DESC
+
+
