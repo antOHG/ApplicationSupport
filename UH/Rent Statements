@@ -1,0 +1,5 @@
+General needs stored procedure
+exec u_sp_RentStatementDataExport '20160912', '20161205'
+
+Leaseholder/Homeowners
+exec u_sp_RentStatementDataExport_homeowners '20160912', '20161205'
